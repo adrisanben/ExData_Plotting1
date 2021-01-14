@@ -1,7 +1,7 @@
 #Import dataset and open libraries
 all <- read.csv(file = "household_power_consumption.txt", sep = ";", header =T)
 library("base")
-
+ 
 dev.cur()
 #Separate 2007-02-01 and 2007-02-02.
 dates <- as.Date(all$Date , "%d / %m / %Y")
