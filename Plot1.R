@@ -3,6 +3,7 @@ all <- read.csv(file = "household_power_consumption.txt", sep = ";", header =T)
 library("base")
  
 dev.cur()
+png(filename = "Plot1.png", width = 480, height = 480)
 #Separate 2007-02-01 and 2007-02-02.
 dates <- as.Date(all$Date , "%d / %m / %Y")
 all$Date <- NULL
@@ -13,5 +14,4 @@ feb_days <- subset(aall, dates == "2007-02-01" | dates == "2007-02-02")
 GAP <- as.numeric(feb_days$Global_active_power)
 hist(GAP,xlab = "Global Active Power (kilowatts)", ylab = "Frequency", main = "Global Active Power",
      col = "red", axes = T)
-dev.copy(png, file ="Plot1.png")
 dev.off()
